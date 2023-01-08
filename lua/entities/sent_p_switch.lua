@@ -60,12 +60,18 @@ function ENT:Touch(ent)
 	
 	local modelSizeMin, modelSizeMax = self:GetModelBounds()
 
-	--todo: make this work at any angle
-	if ( (not (ent:GetClass()=="sent_p_switch")) and 
+	local tr = self:GetTouchTrace()
+	local hitNormal = tr.HitNormal
+
+	local pNormal = (self:GetAngles()):Up()
+	local dotProduct = pNormal:Dot(hitNormal)
+
+	local diff = math.deg(math.acos(dotProduct))
+
+	if (( (not (ent:GetClass()=="sent_p_switch")) and 
 	--(ent:GetPos().z > self:GetPos().z+modelSizeMax.z-1) 
-	(ent:GetPos().z > self:GetPos().z+16) 
-	and (ent:GetPhysicsObject():GetMass()>=85) ) then
-		print(ent:GetPhysicsObject():GetMass())
+	(diff<15) 
+	and (ent:GetPhysicsObject():GetMass()>=85) ) or (ent:GetClass()=="prop_combine_ball")) then
 		self:SetModel("models/p_switch2.mdl")
 		self:SetSolid(SOLID_VPHYSICS)
 		self:SetMoveType( MOVETYPE_VPHYSICS )
@@ -77,6 +83,7 @@ function ENT:Touch(ent)
 		end
 		self:EmitSound("pswitch_switch")
 		self:EmitSound("pswitch_music")
+		ent:DropToFloor()
 		PSwitchActive = true
 		CurrentPSwitch = self
 		timer.Simple( 0.25, function() 
@@ -84,6 +91,9 @@ function ENT:Touch(ent)
 			self:SetNotSolid( true )
 			self:SetMoveType( MOVETYPE_NONE )
 			self:SetParent( self )
+			self:GetPhysicsObject():AddGameFlag(FVPHYSICS_NO_SELF_COLLISIONS)
+			self:SetCollisionGroup(COLLISION_GROUP_WORLD)
+			self:GetPhysicsObject():EnableCollisions(false)
 		end)
 		timer.Simple( 12.7, function()
 			if self:IsValid() then
