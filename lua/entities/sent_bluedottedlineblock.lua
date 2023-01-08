@@ -72,6 +72,9 @@ function ENT:TurnOff(itself)
 end
 
 function ENT:SnapToGrid() 
+
+	if ( CLIENT ) then return end
+
 	-- get the model size of the On/Off Block
 	local modelSize = self:GetModelBounds()
 	

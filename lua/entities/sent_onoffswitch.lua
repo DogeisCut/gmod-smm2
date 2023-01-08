@@ -52,7 +52,7 @@ end
 function ENT:Initialize()
 
 	if ( CLIENT ) then return end
-	
+
 	self:SetModel("models/onoffswitch.mdl")
 	self:SetSolid(SOLID_VPHYSICS)
 	self:SetMoveType( MOVETYPE_VPHYSICS )
@@ -155,6 +155,9 @@ function ENT:TurnOff(itself)
 end
 
 function ENT:SnapToGrid() 
+
+	if ( CLIENT ) then return end
+
 	-- get the model size of the On/Off Block
 	local modelSize = self:GetModelBounds()
 	
