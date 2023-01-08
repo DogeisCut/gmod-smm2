@@ -72,7 +72,7 @@ end
 
 -- set up the On/Off Switch's interaction functions
 function ENT:Touch(ent)
-	if ent:IsPlayer() and ent:GetVelocity().z > 0 and ent:EyePos().z < self:GetPos().z then
+	if (ent:IsPlayer() and ent:GetVelocity().z > 0 and ent:EyePos().z < self:GetPos().z) or (ent:GetClass()=="prop_combine_ball") then
 		if OnOffState[self.Channel] then
 			self:TurnOff(true)
 		else
