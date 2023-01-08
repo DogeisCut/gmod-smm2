@@ -1,0 +1,10 @@
+VertexLitGeneric
+{
+  $basetexture "models/debug/debugwhite"
+  $color2 "[ 0 0.04 1 ]"
+  $bumpmap "dev/bump_normal"
+  $phong "1"
+  $phongexponent "50"
+  $phongfresnelranges "[ 0 0.04 1 ]"
+  $phongboost	1.0
+}

@@ -1,0 +1,17 @@
+vertexlitgeneric
+{
+  $basetexture "models/onoffswitch_on.vtf"
+  $bumpmap "dev/bump_normal"
+  $phong "1"
+  $surfaceprop "Default"
+  
+  "Proxies"
+  {	
+	"AnimatedTexture"
+	{
+		"animatedTextureVar" "$basetexture"
+		"animatedTextureFrameNumVar" "$frame"
+		"animatedTextureFrameRate" "3"
+	}
+  }
+}
