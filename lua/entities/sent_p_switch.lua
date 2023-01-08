@@ -45,7 +45,7 @@ function ENT:Initialize()
 	self:SetMoveType( MOVETYPE_VPHYSICS )
 	self:PhysicsInit( SOLID_VPHYSICS )
 
-	self:GetPhysicsObject():SetMass(100)
+	self:GetPhysicsObject():SetMass(30)
 
 
 end
@@ -76,7 +76,7 @@ function ENT:Touch(ent)
 		self:SetSolid(SOLID_VPHYSICS)
 		self:SetMoveType( MOVETYPE_VPHYSICS )
 		self:PhysicsInit( SOLID_VPHYSICS )
-		self:GetPhysicsObject():SetMass(100)
+		self:GetPhysicsObject():SetMass(30)
 		self:GetPhysicsObject():EnableMotion( false )
 		for i, ent in ipairs( ents.FindByClass( "sent_p_switch" ) ) do
 			ent:StopPSwitchMusic(false)
