@@ -85,6 +85,9 @@ function ENT:Touch(ent)
 		self:EmitSound("pswitch_music")
 		ent:DropToFloor()
 		PSwitchActive = true
+		for i, ent in ipairs( ents.FindByClass( "sent_p_block*" ) ) do
+			ent:TurnOn(false)
+		end
 		CurrentPSwitch = self
 		timer.Simple( 0.25, function() 
 			self:SetNoDraw( true )
@@ -108,6 +111,9 @@ function ENT:OnRemove()
 	self:StopSound("pswitch_music")
 	if CurrentPSwitch==self then
 		PSwitchActive = false 
+		for i, ent in ipairs( ents.FindByClass( "sent_p_block*" ) ) do
+			ent:TurnOff(false)
+		end
 	end
 end
 

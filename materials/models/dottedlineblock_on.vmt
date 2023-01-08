@@ -5,6 +5,6 @@ VertexLitGeneric
   $bumpmap "dev/bump_normal"
   $phong "1"
   $phongexponent "50"
-  $phongfresnelranges "[ 1 0 0.0125 ]"
+  $phongfresnelranges "[ 1 1 1 ]"
   $phongboost	1.0
 }
