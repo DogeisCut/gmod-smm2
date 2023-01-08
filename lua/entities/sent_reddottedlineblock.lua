@@ -4,9 +4,8 @@ AddCSLuaFile()
 ENT.Type = "anim"
 ENT.Base = "base_gmodentity"
 
--- give the On/Off Switch a name and model
+-- give the On/Off Switch a name
 ENT.PrintName = "Red Dotted-Line Block"
-ENT.Model = "models/dottedlineblock.mdl"
 
 -- other junk lmaoooo
 ENT.Editable 			=	true

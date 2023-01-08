@@ -1,0 +1,21 @@
+VertexLitGeneric
+{
+  $basetexture "models/p_switch"
+  $bumpmap "dev/bump_normal"
+  $phong "1"
+  $phongexponent "50"
+  $phongfresnelranges "[ 1 1 1 ]"
+  $phongboost	1.0
+  $selfillum "1"
+  $selfillummask "models/p_switch_mask"
+	"Proxies"
+	{
+		"Sine"
+		{
+			"resultVar" "$selfIllumTint"
+			"sinemin" 1.00
+			"sinemax" 2.00
+			"sineperiod" 0.50
+		}
+	}
+}

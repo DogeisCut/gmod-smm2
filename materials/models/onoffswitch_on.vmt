@@ -1,9 +1,10 @@
-vertexlitgeneric
+VertexLitGeneric
 {
   $basetexture "models/onoffswitch_on.vtf"
   $bumpmap "dev/bump_normal"
   $phong "1"
-  $surfaceprop "Default"
+  $selfillum "1"
+  $selfillummask "models/debug/debugwhite.vtf"
   
   "Proxies"
   {	

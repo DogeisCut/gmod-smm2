@@ -21,7 +21,7 @@ if SERVER then
   SWEP.Category =	"Super Garry Maker 2"
   SWEP.UseHands = true
 
-  SWEP.IconOverride = "entities/mariosboots.jpg"
+  SWEP.IconOverride = "weapons/mariosboots.jpg"
   
   SWEP.Primary.ClipSize = -1
   SWEP.Primary.DefaultClip = -1

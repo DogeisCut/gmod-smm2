@@ -4,9 +4,8 @@ AddCSLuaFile()
 ENT.Type = "anim"
 ENT.Base = "base_gmodentity"
 
--- give the On/Off Switch a name and model
+-- give the On/Off Switch a name
 ENT.PrintName = "On/Off Switch"
-ENT.Model = "models/onoffswitch.mdl"
 
 -- other junk lmaoooo
 ENT.Editable 			=	true
