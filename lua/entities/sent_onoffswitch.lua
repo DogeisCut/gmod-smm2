@@ -23,7 +23,7 @@ OnOffState[ENT.Channel] = true
 
 ENT.DataTables = { "Channel" }
 
-ENT.HitCooldown = CurTime()
+OnOffHitCooldown = CurTime()
 
 -- define a table of colors for each channel
 ENT.CHANNEL_MATERIALS = {
@@ -94,13 +94,13 @@ end
 function ENT:TurnOn(itself)
 
 	self:RemoveAllDecals()
-	if itself and ((CurTime()-self.HitCooldown)<0.25) then return end
+	if itself and ((CurTime()-OnOffHitCooldown)<0.25) then return end
 
 	self:SetMaterial(self.CHANNEL_MATERIALS[self.Channel].on)
 
 	if itself then
 
-		self.HitCooldown = CurTime()
+		OnOffHitCooldown = CurTime()
 
 		-- if not self:IsSequenceFinished() then return end
 
@@ -125,13 +125,13 @@ end
 function ENT:TurnOff(itself)
 
 	self:RemoveAllDecals()
-	if itself and ((CurTime()-self.HitCooldown)<0.25) then return end
+	if itself and ((CurTime()-OnOffHitCooldown)<0.25) then return end
 	
 	self:SetMaterial(self.CHANNEL_MATERIALS[self.Channel].off)
 
 	if itself then
 
-		self.HitCooldown = CurTime()
+		OnOffHitCooldown = CurTime()
 
 		-- if not self:IsSequenceFinished() then return end
 
