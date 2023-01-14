@@ -3,8 +3,6 @@ VertexLitGeneric
   $basetexture "models/onoffswitch_off.vtf"
   $bumpmap "dev/bump_normal"
   $phong "1"
-  $selfillum "1"
-  $selfillummask "models/debug/debugwhite.vtf"
   
   "Proxies"
   {	
