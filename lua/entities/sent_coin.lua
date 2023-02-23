@@ -5,7 +5,7 @@ ENT.Type = "anim"
 ENT.Base = "base_gmodentity"
 
 -- give the On/Off Switch a name
-ENT.PrintName = "P Block (On)"
+ENT.PrintName = "Coin"
 
 -- other junk lmaoooo
 ENT.Editable 			=	true
@@ -14,46 +14,40 @@ ENT.AdminOnly			=	false
 ENT.Category 			=	"Super Garry Maker 2"
 ENT.Author				= 	"Dogeiscut"
 
-ENT.IconOverride		=	"materials/supergarrysmaker/entities/p_block.jpg"
+ENT.IconOverride		=	"materials/supergarrysmaker/vgui/coin.vmt"
 
 
 function ENT:Initialize()
 
 	if ( CLIENT ) then return end
 
-	self:SetModel("models/p_block.mdl")
-	self:SetMaterial("models/p_block.vmt")
+	self:SetModel("models/supergarrysmaker/coin.mdl")
 	self:SetSolid(SOLID_VPHYSICS)
 	self:SetMoveType( MOVETYPE_VPHYSICS )
 	self:PhysicsInit( SOLID_VPHYSICS )
-	self:SnapToGrid()
-	if PSwitchActive == true then
-		self:TurnOn(false)
-	else
-		self:TurnOff(false)
-	end
-end
-
--- set up the On/Off Switch's state change functions
-function ENT:TurnOn(itself)
-
-	self:SetModel("models/p_block2.mdl")
-	self:GetPhysicsObject():AddGameFlag(FVPHYSICS_NO_SELF_COLLISIONS)
 	self:SetCollisionGroup(COLLISION_GROUP_WORLD)
-	self:GetPhysicsObject():EnableCollisions(false)
-	self:RemoveAllDecals()
 
+	self:ResetSequenceInfo()
+	self:SetSequence("spin")
+
+	self:SnapToGrid()
 end
 
-function ENT:TurnOff(itself)
+function ENT:Think()
+    for _, ply in pairs(player.GetAll()) do
+        local plyPos = ply:GetPos()
+        local plyFeet = plyPos + ply:OBBCenter() * ply:GetModelScale()
+        local plyMiddle = plyPos + Vector(0, 0, ply:OBBMaxs().z * ply:GetModelScale() * 0.5)
+        local plyHead = plyPos + Vector(0, 0, ply:OBBMaxs().z * ply:GetModelScale())
 
-	self:SetModel("models/p_block.mdl")
-	self:GetPhysicsObject():ClearGameFlag(FVPHYSICS_NO_SELF_COLLISIONS)
-	self:SetCollisionGroup(COLLISION_GROUP_NONE)
-	self:GetPhysicsObject():EnableCollisions(true)
-	self:RemoveAllDecals()
-
+        if plyFeet:Distance(self:GetPos()) <= 64 or plyMiddle:Distance(self:GetPos()) <= 64 or plyHead:Distance(self:GetPos()) <= 64 then
+            ply:SetNWInt("mariocoins", ply:GetNWInt("mariocoins") + 1)
+			RunConsoleCommand("coincounter_popin")
+            self:Remove()
+        end
+    end
 end
+
 
 function ENT:SnapToGrid() 
 
@@ -82,8 +76,8 @@ function ENT:SnapToGrid()
 	self:GetPhysicsObject():EnableMotion( false )
 end
 
-hook.Add("PhysgunDrop", "PBlockOnStop", function(ply, ent)
-	if ent:GetClass()=="sent_p_block_on" then
+hook.Add("PhysgunDrop", "CoinStop", function(ply, ent)
+	if ent:GetClass()=="sent_coin" then
 		ent:SnapToGrid()
 	end
 end )

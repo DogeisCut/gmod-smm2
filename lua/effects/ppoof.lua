@@ -10,7 +10,7 @@ function EFFECT:Init( data )
 
 		local Pos = Vector( math.Rand( -1, 1 ), math.Rand( -1, 1 ), math.Rand( -1, 1 ) )
 
-		local particle = emitter:Add( "sprites/ppoof.vmt", vOffset + Pos * 8 )
+		local particle = emitter:Add( "supergarrysmaker/sprites/ppoof.vmt", vOffset + Pos * 8 )
 		if ( particle ) then
 
 			particle:SetVelocity( Pos * 100 )

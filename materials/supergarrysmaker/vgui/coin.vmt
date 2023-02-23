@@ -1,6 +1,6 @@
 "UnlitGeneric"
 {
-	"$basetexture" "vgui/coin.vtf"
+	"$basetexture" "supergarrysmaker/vgui/coin.vtf"
 	"$translucent" 1
 	"$vertexalpha" 1
 	"$vertexcolor" 1

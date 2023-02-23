@@ -1,0 +1,8 @@
+"UnlitGeneric"
+{
+    "$basetexture"      "supergarrysmaker/sprites/ppoof_balls"
+    "$bumpmap"	"supergarrysmaker/sprites/ppoof_norm"
+    "$vertexcolor"      1
+    "$vertexalpha"      1
+    "$alphatest"        1
+}

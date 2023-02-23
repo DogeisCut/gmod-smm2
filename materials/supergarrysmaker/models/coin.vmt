@@ -1,0 +1,11 @@
+VertexLitGeneric
+{
+	$basetexture "models/debug/debugwhite"
+	$color2 "[ 1 1 0 ]"
+	$phong "10"
+	$phongexponent "50"
+	$phongfresnelranges "[ 1 1 1 ]"
+	$phongboost	1.0
+	$envmap "supergarrysmaker/models/gold.hdr.vtf"
+	$envmaptint "[ 0.8 0.8 0.8 ]"
+}

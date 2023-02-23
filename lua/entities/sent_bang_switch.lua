@@ -11,7 +11,7 @@ ENT.AdminOnly			=	false
 ENT.Category 			=	"Super Garry Maker 2"
 ENT.Author				= 	"Dogeiscut"
 
-ENT.IconOverride		=	"materials/entities/bang_switch.jpg"
+ENT.IconOverride		=	"materials/supergarrysmaker/entities/bang_switch.jpg"
 
 ENT.Flattened = false
 ENT.HadMotionBefore = true

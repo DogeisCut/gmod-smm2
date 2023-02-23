@@ -14,7 +14,7 @@ ENT.AdminOnly			=	false
 ENT.Category 			=	"Super Garry Maker 2"
 ENT.Author				= 	"Dogeiscut"
 
-ENT.IconOverride		=	"materials/entities/onoffswitch.jpg"
+ENT.IconOverride		=	"materials/supergarrysmaker/entities/onoffswitch.jpg"
 
 -- set up the On/Off Switch's default state
 ENT.Channel = 0
